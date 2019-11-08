@@ -2,6 +2,7 @@
     let word = ["b","o","n","j","o","u","r"];
     let final = ["_","_","_","_","_","_","_"];
     let fail = [];
+    let ok = [];
     let correct = 1;
     let incorrect = 1;
 
@@ -24,7 +25,11 @@ if (correct >=7){
 
         function guessLetter()  {     
                 for (let i = 0; i < word.length; i++) {
+                    if (searcWord == ok[i]) {
+                        alert("vous avez déjà indiqué cette lettre");
+                    else {
                     if (searchWord == word[i]){
+                        ok.splice(1,0, searchWord);
                         final.splice(i, 1, searchWord);
                         document.getElementById("mot").innerHTML = "Mot a découvrir  : " +final;
                         alert("vous avez trouvé la lettre " + searchWord );
@@ -37,6 +42,7 @@ if (correct >=7){
                             } 
                         }
 
+                    }
                     }
                 } 
 
